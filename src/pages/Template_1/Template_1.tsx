@@ -12,7 +12,6 @@ import { Radio } from "../../components/Radio/Radio";
 
 export function Template_1() {
     const [selectedBrand, setSelectedBrand] = useState("karcher");
-    const [topTitle, setTopTitle] = useState('');
     const [guarantee, setGuarantee] = useState(false);
     const [title, setTitle] = useState('');
     const [articul, setArticul] = useState('');
@@ -29,10 +28,6 @@ export function Template_1() {
 
     const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setTitle(e.target.value);
-    }
-
-    const handleTopTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setTopTitle(e.target.value);
     }
 
     const handleArticulChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -94,9 +89,8 @@ export function Template_1() {
                     checked={selectedBrand === "greenworks"}
                     onChange={handleBrandChange}
                 />
-                <Input placeholder="Текст вверху" value={topTitle} onChange={handleTopTitleChange} />
-                <Checkbox value={guarantee} onChange={(e) => setGuarantee(e.target.checked)} />
                 <Input placeholder="Заголовок" value={title} onChange={handleTitleChange} />
+                <Checkbox value={guarantee} onChange={(e) => setGuarantee(e.target.checked)} />
                 <Input placeholder="Артикул" value={articul} onChange={handleArticulChange} />
                 <ChooseImage onChange={handleImageChange} />
                 <Input placeholder="Элемент 1" value={element1} onChange={handleElement1Change} />
@@ -108,7 +102,6 @@ export function Template_1() {
                 <Card_1 
                     ref={ref}
                     type={selectedBrand as Type}
-                    topTitle={topTitle}
                     guarantee={guarantee}
                     title={title} 
                     articul={articul} 

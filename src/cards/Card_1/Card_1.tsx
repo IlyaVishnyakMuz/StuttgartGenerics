@@ -14,7 +14,6 @@ export type Type = "karcher" | "husqvarna" | "stiga" | "greenworks"
 
 interface Card_1Props {
 	type: Type;
-	topTitle: string;
 	guarantee: boolean;
 	title: string;
 	articul: string;
@@ -25,7 +24,7 @@ interface Card_1Props {
 }
 
 export const Card_1 = forwardRef<HTMLDivElement, Card_1Props>(
-	({ type, topTitle, guarantee, title, articul, image, element1, element2, element3 }, ref) => {
+	({ type, guarantee, title, articul, image, element1, element2, element3 }, ref) => {
 		const [processedImage, setProcessedImage] = useState<string | undefined>(undefined);
 		const [loading, setLoading] = useState(false);
 
@@ -76,7 +75,7 @@ export const Card_1 = forwardRef<HTMLDivElement, Card_1Props>(
 					<div className={styles.top_content}>
 						<div className={styles.top}>
 							<div className={styles.logo}>{ logo ? <img src={logo} /> : ""}</div>
-							<div className={styles.topTitle} dangerouslySetInnerHTML={{__html: topTitle}}></div>
+							<div className={styles.topTitle}>ОФИЦИАЛЬНЫЙ ДИЛЕР</div>
 						</div>
 						<h3 className={styles.title} dangerouslySetInnerHTML={{__html: title}}></h3>
 					</div>
