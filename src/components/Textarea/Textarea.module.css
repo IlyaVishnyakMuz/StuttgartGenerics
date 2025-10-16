@@ -1,0 +1,16 @@
+.textarea {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: white;
+    border-radius: 20px;
+    padding: 21px;
+    border: 1px solid #D6D6D6;
+    min-height: 49px;
+    resize: none;
+    height: 100px;
+}
+
+.textarea::placeholder {
+    color: #CFCFCF;
+}

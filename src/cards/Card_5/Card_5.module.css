@@ -1,0 +1,58 @@
+.card {
+    min-width: 900px;
+    max-width: 900px;
+    height: 1200px;
+    background: #EEEEEE;
+    transform: scale(0.5);
+    transform-origin: top;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 79px 68px 100px;
+}
+
+.content {
+    color: #282828;
+}
+
+.title {
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 70px;
+    letter-spacing: 2px;
+    line-height: 80px;
+}
+
+.description {
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 35px;
+    margin-bottom: 29px;
+}
+
+.image {
+    height: 685px;
+}
+
+.image img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(13px 10px 36px rgba(0, 0, 0, 0.29));
+}
+
+.logo {
+    position: absolute;
+    z-index: 1;
+    bottom: 52px;
+    right: 41px;
+    max-width: 196px;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    max-width: 100%;
+}

@@ -1,0 +1,6 @@
+.content {
+    margin-left: 296px;
+    width: calc(100vw - 296px);
+    min-height: 100vh;
+    display: flex;
+}

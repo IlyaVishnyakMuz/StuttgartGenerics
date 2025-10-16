@@ -1,0 +1,9 @@
+.cardarea {
+    min-width: 540px;
+    max-width: 540px;
+    background: rgb(71, 68, 68);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+}

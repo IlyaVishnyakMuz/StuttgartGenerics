@@ -1,0 +1,20 @@
+.label {
+    cursor: pointer;
+    color: #AE7B7B;
+    font-weight: 700;
+    padding: 17px 41px;
+    border-radius: 100px;
+    border: 1px solid #AE7B7B;
+    cursor: pointer;
+    transition: 0.3s ease;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.label:hover {
+    opacity: 0.6;
+}
+
+.label input {
+    display: none;
+}
