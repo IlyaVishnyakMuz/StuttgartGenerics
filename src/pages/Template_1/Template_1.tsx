@@ -5,14 +5,13 @@ import { Template } from "../../components/Template/Template";
 import { Workspace } from "../../components/Workspace/Workspace";
 import { ChooseImage } from "../../components/ChooseImage/ChooseImage";
 import { useState, useRef } from "react";
-import { Card_1 } from "../../cards/Card_1/Card_1";
+import { Card_1, type Type } from "../../cards/Card_1/Card_1";
 import { toPng } from "html-to-image";
 import { Checkbox } from "../../components/Checkbox/Checkbox";
-import { ColorPicker } from "../../components/ColorPicker/ColorPicker";
+import { Radio } from "../../components/Radio/Radio";
 
 export function Template_1() {
-    const [color, setColor] = useState('#2D3F65');
-    const [logo, setLogo] = useState('');
+    const [selectedBrand, setSelectedBrand] = useState("karcher");
     const [topTitle, setTopTitle] = useState('');
     const [guarantee, setGuarantee] = useState(false);
     const [title, setTitle] = useState('');
@@ -23,6 +22,10 @@ export function Template_1() {
     const [element3, setElement3] = useState('');
 
     const ref = useRef<HTMLDivElement>(null);
+
+    const handleBrandChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSelectedBrand(e.target.value);
+    };
 
     const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setTitle(e.target.value);
@@ -48,15 +51,6 @@ export function Template_1() {
         setElement3(e.target.value);
     }
 
-    const handleLogoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const file = e.target.files?.[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = () => setLogo(reader.result as string);
-            reader.readAsDataURL(file);
-        }
-    };
-
     const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (file) {
@@ -80,8 +74,26 @@ export function Template_1() {
     return(
         <Template>
             <Workspace>
-                <ColorPicker color={color} setColor={(e) => setColor(e.target.value)} />
-                <ChooseImage title="Выбрать логотип" onChange={handleLogoChange} />
+                <Radio 
+                    value="karcher"
+                    checked={selectedBrand === "karcher"}
+                    onChange={handleBrandChange}
+                />
+                <Radio 
+                    value="husqvarna"
+                    checked={selectedBrand === "husqvarna"}
+                    onChange={handleBrandChange}
+                />
+                <Radio 
+                    value="stiga"
+                    checked={selectedBrand === "stiga"}
+                    onChange={handleBrandChange}
+                />
+                <Radio 
+                    value="greenworks"
+                    checked={selectedBrand === "greenworks"}
+                    onChange={handleBrandChange}
+                />
                 <Input placeholder="Текст вверху" value={topTitle} onChange={handleTopTitleChange} />
                 <Checkbox value={guarantee} onChange={(e) => setGuarantee(e.target.checked)} />
                 <Input placeholder="Заголовок" value={title} onChange={handleTitleChange} />
@@ -94,9 +106,8 @@ export function Template_1() {
             </Workspace>
             <Cardarea>
                 <Card_1 
-                    ref={ref} 
-                    color={color}
-                    logo={logo} 
+                    ref={ref}
+                    type={selectedBrand as Type}
                     topTitle={topTitle}
                     guarantee={guarantee}
                     title={title} 

@@ -1,0 +1,51 @@
+.label {
+    cursor: pointer;
+}
+
+.label input {
+    display: none;
+}
+
+.label span {
+    position: relative;
+    font-weight: 600;
+    padding-left: 55px;
+    user-select: none;
+}
+
+.label span::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    min-width: 41px;
+    max-width: 41px;
+    height: 22px;
+    border: 1px solid #AE7B7B;
+    border-radius: 100px;
+    transition: 0.3s ease;
+}
+
+.label span::after {
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+    min-width: 16px;
+    max-width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    background: #AE7B7B;
+    transition: 0.3s ease;
+}
+
+.label input:checked + span::before {
+    background: #AE7B7B;
+}
+
+.label input:checked + span::after {
+    background: #F4F4F4;
+    transform: translate(21px, -50%);
+}
